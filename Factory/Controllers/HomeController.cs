@@ -10,8 +10,6 @@ namespace Factory.Controllers
     {
       _db = db;
     }
-
-    // [HttpGet("/")]
     public ActionResult Index()
     {
       ViewBag.Engineers = _db.Engineers;

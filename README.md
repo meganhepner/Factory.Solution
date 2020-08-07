@@ -19,7 +19,7 @@
 * navigate to the Factory directory and type dotnet build in the command line to compile the code
 * remaining in the Factory directory type dotnet ef database update to create the database
 * type dotnet run in the command line to run the program
-__
+
 
 ## 🔍Specs
 
