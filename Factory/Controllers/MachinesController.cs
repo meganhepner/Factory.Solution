@@ -25,9 +25,13 @@ namespace Factory.Controllers
       return View();
     }
     [HttpPost]
-    public ActionResult Create(Machine machine)
+    public ActionResult Create(Machine machine, int EngineerId)
     {
       _db.Machines.Add(machine);
+      if (EngineerId != 0)
+      {
+        _db.EngineerMachine.Add(new EngineerMachine() { EngineerId = EngineerId, MachineId = machine.MachineId });
+      }
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
@@ -86,7 +90,7 @@ namespace Factory.Controllers
 
     public ActionResult AddEngineer(int id)
     {
-      var thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
+      var thisMachine = _db.Machines.FirstOrDefault(machines => machines.MachineId == id);
       ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "EngineerName");
       return View(thisMachine);
     }
