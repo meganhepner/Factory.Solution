@@ -3,19 +3,18 @@
 @{
   Layout = "_Layout";
 }
+<h2>Add an Engineer</h2>
 
-<h1>Edit this Machine : @Html.DisplayFor(model => model.MachineName)</h1>
+<h4>Add an engineer licensed to service this machine : @Html.DisplayFor(model => model.MachineName)</h4>
 
 @using (Html.BeginForm())
 {
   @Html.HiddenFor(model => model.MachineId)
-
-  @Html.LabelFor(model => model.MachineName)
-  @Html.EditorFor(model => model.MachineName)
-  <br>
 
   @Html.Label("Select Engineer")
   @Html.DropDownList("EngineerId")
 
   <input type="submit" value="Save" />
 }
+
+<p>@Html.ActionLink("Add new Machine", "Create")</p>

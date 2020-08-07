@@ -4,19 +4,19 @@
   Layout = "_Layout";
 }
 
-<h1>Edit this Engineer : @Html.DisplayFor(model => model.EngineerName)</h1>
+<h2>Add a Machine</h2>
+
+<h4>Add a machine to this engineer's service licenses: @Html.DisplayFor(model => model.EngineerName)</h4>
 
 @using (Html.BeginForm())
 {
   @Html.HiddenFor(model => model.EngineerId)
-
-  @Html.LabelFor(model => model.EngineerName)
-  @Html.EditorFor(model => model.EngineerName)
-  <br>
 
   @Html.Label("Select Machine")
   @Html.DropDownList("MachineId")
 
   <input type="submit" value="Save" />
 }
+
+@* <@Html.ActionLink("Return to Engineer" "") *@
 
