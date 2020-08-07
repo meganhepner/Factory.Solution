@@ -16,6 +16,9 @@
   @Html.LabelFor(model => model.DateofHire)
   @Html.TextBoxFor(model => model.DateofHire, new { @type = "date"})
   <br>
+  @Html.Label("Engineer is currently on a project")
+  @Html.CheckBoxFor(model => model.IsWorking, false)
+  <br>
   @Html.Label("Select Machine")
   @Html.DropDownList("MachineId")
 
