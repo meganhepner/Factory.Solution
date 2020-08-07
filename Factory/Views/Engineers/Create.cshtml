@@ -10,8 +10,8 @@
 {
   @Html.LabelFor(model => model.EngineerName)
   @Html.TextBoxFor(model => model.EngineerName)
-
-  @Html.Label("MachineId")<br>
+  <br>
+  @Html.Label("Add Machines this Engineer is Licensed For: ")<br>
   @Html.DropDownList("MachineId")<br>
 
   <input type="submit" value="Add Engineer" /><br>
