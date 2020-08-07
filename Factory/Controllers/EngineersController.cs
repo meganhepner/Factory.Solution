@@ -19,8 +19,7 @@ namespace Factory.Controllers
     {
       ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
       ViewBag.DateSortParm = sortOrder=="Date" ? "date_desc" : "Date";
-      var engineers = from engineer in _db.Engineers
-                    select engineer;
+      var engineers = from engineer in _db.Engineers select engineer;
       if (!String.IsNullOrEmpty(searchString))
       {
           engineers = engineers.Where(engineer => engineer.EngineerName.Contains(searchString));
@@ -30,12 +29,12 @@ namespace Factory.Controllers
         case "name_desc":
           engineers = engineers.OrderByDescending(engineer => engineer.EngineerName);
           break;
-        // case "Date":
-        //   engineers = engineers.OrderBy(engineer => engineer.DateofHire);
-        //   break;
-        // case "date_desc":
-        //   engineers = engineers.OrderByDescending(engineer => engineer.DateOfHire);
-        //   break;
+        case "Date":
+          engineers = engineers.OrderBy(engineer => engineer.DateofHire);
+          break;
+        case "date_desc":
+          engineers = engineers.OrderByDescending(engineer => engineer.DateofHire);
+          break;
         default:
           engineers = engineers.OrderBy(engineer => engineer.EngineerName);
           break;
