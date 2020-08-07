@@ -1,0 +1,14 @@
+@model Registrar.Models.Engineer
+
+@{
+  Layout = "_Layout";
+}
+
+<h2>Are you sure you want to delete this engineer?</h2>
+
+@Html.DisplayName("Engineer Name"): @Html.DisplayFor(model => model.EngineerName)
+@using (Html.BeginForm())
+{
+  <input type="submit" value="Delete" />
+}
+@Html.ActionLink("Back to Engineers", "Index")
