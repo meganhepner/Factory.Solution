@@ -4,7 +4,7 @@
 
 ## <h2 align = "center"> About
 
-<p align = "center"> This is an application for a factory. It 
+<p align = "center"> This is an application for a factory. The user may create new machines and engineers, and connect those objects with a many to many relationship.
 
 ## **✅REQUIREMENTS**
 * Install [Git v2.62.2+](https://git-scm.com/downloads/)
@@ -13,12 +13,11 @@
 * Install [MySql Workbench](https://www.mysql.com/products/workbench/)
 
 ## **💻SETUP**
-* to clone this content, copy the url provided by the 'clone or download' button in GitHub
+* to clone this content, copy the url provided by the green 'Code' button in GitHub
 * in command line use the command 'git clone (GitHub url)'
 * open the program in a code editor
-///write new setup instrucs here
-* in your code editor create a .gitignore file and store the bin and obj folders in .gitignore
 * navigate to the Factory directory and type dotnet build in the command line to compile the code
+* remaining in the Factory directory type dotnet ef database update to create the database
 * type dotnet run in the command line to run the program
 __
 
