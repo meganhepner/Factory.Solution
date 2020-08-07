@@ -16,18 +16,21 @@ else
 {
   @using (Html.BeginForm())
   {
-    <p> Find by name: @Html.TextBox("SearchString")
-        <input type="submit" value="Search" /></p>
+    <p> 
+      Find by name: @Html.TextBox("SearchString")
+      <input type="submit" value="Search" />
+    </p>
   }
   <table class="table">
     <tr>
         <th>
-            @Html.ActionLink("EngineerName", "Index", new { sortOrder = ViewBag.NameSortParm })
-        </th>
-        <th>Student Id
+            @Html.ActionLink("Engineer", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
         <th>
-            @Html.ActionLink("Enrollment Date", "Index", new { sortOrder = ViewBag.DateSortParm })
+            @Html.ActionLink("Date Of Hire", "Index", new { sortOrder = ViewBag.DateSortParm })
+        </th>
+        <th>
+            Status
         </th>
     </tr>
     

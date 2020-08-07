@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
-using Factory.Models;
-using System.Linq;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using Factory.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Factory.Controllers
 {
@@ -13,9 +15,32 @@ namespace Factory.Controllers
     {
       _db = db;
     }
-    public ActionResult Index()
+    public ActionResult Index(string sortOrder, string searchString)
     {
-      return View(_db.Engineers.ToList());
+      ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+      ViewBag.DateSortParm = sortOrder=="Date" ? "date_desc" : "Date";
+      var engineers = from engineer in _db.Engineers
+                    select engineer;
+      if (!String.IsNullOrEmpty(searchString))
+      {
+          engineers = engineers.Where(engineer => engineer.EngineerName.Contains(searchString));
+      }
+      switch (sortOrder)
+      {
+        case "name_desc":
+          engineers = engineers.OrderByDescending(engineer => engineer.EngineerName);
+          break;
+        // case "Date":
+        //   engineers = engineers.OrderBy(engineer => engineer.DateofHire);
+        //   break;
+        // case "date_desc":
+        //   engineers = engineers.OrderByDescending(engineer => engineer.DateOfHire);
+        //   break;
+        default:
+          engineers = engineers.OrderBy(engineer => engineer.EngineerName);
+          break;
+      }
+      return View(engineers.ToList());
     }
 
     public ActionResult Create()
