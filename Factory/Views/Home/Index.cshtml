@@ -5,13 +5,19 @@
 }
 
 <h1>Dr. Sneuss' Factory</h1>
-
-     @foreach (Engineer engineer in ViewBag.Engineers)
+ 
+  <div class="col-md-5">
+    <h2>Our Engineers</h2>
+    @foreach (Engineer engineer in ViewBag.Engineers)
         {
           <li>@engineer.EngineerName</li>
         }
-      @foreach (Machine machine in ViewBag.Machines)
+  </div>
+  <div class="col-md-5">
+    <h2>Our Machines</h2>
+    @foreach (Machine machine in ViewBag.Machines)
         {
           <li>@machine.MachineName</li>
         }
+  </div>
 

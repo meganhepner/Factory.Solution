@@ -1,9 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using Factory.Models;
-using System.Linq;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Factory.Controllers
 {
