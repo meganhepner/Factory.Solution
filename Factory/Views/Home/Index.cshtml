@@ -1,11 +1,17 @@
+@using Factory.Models;
+
 @{
   Layout = "_Layout";
 }
 
 <h1>Dr. Sneuss' Factory</h1>
 
-@foreach ("EngineerId")
-{
-  <li>$"{EngineerId}"</li>
-}
+     @foreach (Engineer engineer in ViewBag.Engineers)
+        {
+          <li>@engineer.EngineerName</li>
+        }
+      @foreach (Machine machine in ViewBag.Machines)
+        {
+          <li>@machine.MachineName</li>
+        }
 

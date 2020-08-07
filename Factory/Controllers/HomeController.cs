@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Factory.Models;
 using System.Linq;
+using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -17,8 +18,8 @@ namespace Factory.Controllers
     // [HttpGet("/")]
     public ActionResult Index()
     {
-      ViewBag.MachineId.ToList();
-      ViewBag.EngineerId.ToList();
+      ViewBag.Engineers = _db.Engineers;
+      ViewBag.Machines = _db.Machines;
       return View();
     }
 
