@@ -1,0 +1,17 @@
+@model Factory.Models.Engineer
+
+@{
+  Layout = "_Layout";
+}
+
+<h2>Add a new engineer</h2>
+
+@using(Html.BeginForm())
+{
+  @Html.LabelFor(model => model.EngineerName)
+  @Html.TextBoxFor(model => model.EngineerName)
+
+  <p>This Engineer is Licensed to Repair : </p>
+  <input type="checkbox" name="CategoryId" value="CategoryId">
+
+}

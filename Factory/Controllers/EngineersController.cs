@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using ToDoList.Models;
+using Factory.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
@@ -9,10 +9,20 @@ namespace Factory.Controllers
 {
   public class EngineersController : Controller
   {
-
-    [HttpGet("/")]
+    private readonly FactoryContext _db;
+    public EngineersController(FactoryContext db)
+    {
+      _db = db;
+    }
     public ActionResult Index()
     {
+      List<Engineer> model = _db.Engineers.ToList();
+      return View(model);
+    }
+
+    public ActionResult Create()
+    {
+      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "MachineName");
       return View();
     }
 
