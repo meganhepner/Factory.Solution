@@ -11,7 +11,11 @@
   @Html.LabelFor(model => model.EngineerName)
   @Html.TextBoxFor(model => model.EngineerName)
 
-  <p>This Engineer is Licensed to Repair : </p>
-  <input type="checkbox" name="CategoryId" value="CategoryId">
+  @Html.Label("MachineId")<br>
+  @Html.DropDownList("MachineId")<br>
 
+  <input type="submit" value="Add Engineer" /><br>
 }
+
+<p>@Html.ActionLink("Show all Engineers", "Index")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

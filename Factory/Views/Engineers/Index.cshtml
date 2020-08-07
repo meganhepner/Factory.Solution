@@ -1,0 +1,53 @@
+@using Factory.Models;
+@model List<Factory.Models.Engineer>;
+
+@{
+  Layout = "_Layout";
+}
+
+<h1>Engineers</h1>
+<hr/>
+
+@if (@Model.Count == 0)
+{
+  <h5>There are no engineers in the system</h5>
+}
+else
+{
+  @using (Html.BeginForm())
+  {
+    <p> Find by name: @Html.TextBox("SearchString")
+        <input type="submit" value="Search" /></p>
+  }
+  <table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("EngineerName", "Index", new { sortOrder = ViewBag.NameSortParm })
+        </th>
+        <th>Student Id
+        </th>
+        <th>
+            @Html.ActionLink("Enrollment Date", "Index", new { sortOrder = ViewBag.DateSortParm })
+        </th>
+    </tr>
+    
+  @foreach (Engineer engineer in @Model)
+  {
+    <tr>
+      <td>
+        @Html.ActionLink($"{engineer.EngineerName}", "Details", new { id = engineer.EngineerId})
+      </td>
+      <td>
+        @* @student.StudentId *@
+      </td>
+      <td>
+        @* @student.EnrollmentDate *@
+      </td>
+    </tr>
+  }
+  </table>
+}
+
+<p>@Html.ActionLink("Add new Engineer", "Create")</p>
+
+<button>@Html.ActionLink("Home", "Index", "Home")</button>
