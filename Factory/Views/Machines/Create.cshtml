@@ -9,7 +9,7 @@
 @using(Html.BeginForm())
 {
   @Html.LabelFor(model => model.MachineName)
-  @Html.TextBoxFor(model => model.MachineName)
+  @Html.TextBoxFor(model => model.MachineName, new {@class="form-control", required="required"})
   <br>
   @Html.Label("Add Engineers Licensed to Work with this Machine: ")<br>
   @Html.DropDownList("EngineerId")<br>

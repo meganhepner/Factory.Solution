@@ -8,18 +8,39 @@
 
 @using(Html.BeginForm())
 {
-  @Html.LabelFor(model => model.EngineerName)
-  @Html.TextBoxFor(model => model.EngineerName)
-  <br>
-  @Html.LabelFor(model => model.DateofHire)
-  @Html.TextBoxFor(model => model.DateofHire, new { @type = "date"})
-  <br>
-  @Html.Label("Engineer is currently on a project")
-  @Html.CheckBoxFor(model => model.IsWorking, false)
-  <br>
-  @Html.Label("Add Machines this Engineer is Licensed For: ")<br>
-  @Html.DropDownList("MachineId")<br>
-
-  <input type="submit" value="Add Engineer" /><br>
+  <div class="row">
+    <div class="col-md-5 column">
+      @Html.LabelFor(model => model.EngineerName)<br>
+    </div>
+    <div class="col-md-5 column">
+      @Html.TextBoxFor(model => model.EngineerName, new {@class="form-control", required="required"})<br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-5 column">
+        @Html.LabelFor(model => model.DateofHire)<br>
+    </div>
+    <div class="col-md-5 column">
+        @Html.TextBoxFor(model => model.DateofHire, new { @type = "date"})<br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-5 column">
+      @Html.Label("Engineer is currently on a project")<br>
+    </div>
+    <div class="col-md-5 column">
+      @Html.CheckBoxFor(model => model.IsWorking, false)<br>
+    </div>
+  </div>
+    <div class="row">
+    <div class="col-md-5 column">
+      @Html.Label("Add Machines this Engineer is Licensed For: ")<br>
+    </div>
+    <div class="col-md-5 column">
+      @Html.DropDownList("MachineId")<br>
+      <br>    
+      <input type="submit" value="Add Engineer" /><br>
+    </div>
+  </div>
 }
-
+      
